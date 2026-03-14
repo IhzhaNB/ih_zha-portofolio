@@ -92,14 +92,14 @@ export default function Hero() {
             Developer
           </h1>
           <p className="hero-text sm:max-w-md mx-auto text-neutral-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non illo
-            minus ducimus tenetur accusantium possimus facilis. Temporibus, cum
-            consectetur incidunt minus, consequuntur praesentium recusandae
-            saepe atque soluta doloremque corporis est.
+            Scalability-focused Backend Developer specializing in Go and
+            Node.js. I design robust RESTful APIs, manage complex databases
+            (PostgreSQL, Redis), and implement Clean Architecture to deliver
+            efficient software solutions.
           </p>
           <CustomLink
             label="More about me!"
-            href="#"
+            href="#about"
             className="text-xl font-semibold"
           />
         </div>

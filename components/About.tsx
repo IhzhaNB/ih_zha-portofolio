@@ -43,7 +43,11 @@ export default function About() {
   );
 
   return (
-    <section ref={aboutRef} className="py-20 border-t border-neutral-200">
+    <section
+      id="about"
+      ref={aboutRef}
+      className="py-20 border-t border-neutral-200"
+    >
       <div className="container space-y-14">
         {/* Content */}
         <div className="space-y-3">
@@ -60,13 +64,21 @@ export default function About() {
             <span>ut me</span>
           </div>
           <p className="about-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-            dignissimos blanditiis vero adipisci, illum autem! Magnam officiis,
-            esse laborum veritatis rem repellat adipisci maxime reiciendis sunt
-            sed, quod nihil nobis ab exercitationem eaque porro veniam impedit
-            fugit explicabo nostrum a, velit culpa at architecto. Beatae aperiam
-            adipisci fugit commodi ullam, ipsa, alias magnam atque assumenda
-            unde sit architecto? Voluptatem, dolore.
+            Hi there! I&apos;m Ihzha, a Backend Developer who loves building the
+            invisible engines that power great applications. While my academic
+            background in Data Science gave me a deep appreciation for data
+            structures and analytics, my true passion lies in software
+            engineering.
+          </p>
+          <p className="about-text">
+            I started my coding journey by building web applications with the
+            MERN stack, but I quickly discovered my sweet spot in backend
+            development. Today, I specialize in the Go ecosystem, crafting
+            efficient, scalable APIs and managing robust databases like
+            PostgreSQL and Redis. I enjoy the challenge of writing clean code,
+            optimizing system performance, and turning complex business logic
+            into reliable software. I&apos;m always excited to tackle new
+            technical challenges and collaborate with passionate teams.
           </p>
         </div>
 

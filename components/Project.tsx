@@ -45,7 +45,7 @@ export default function Project() {
   );
 
   return (
-    <section ref={projectsRef} className="py-20">
+    <section id="projects" ref={projectsRef} className="py-20 mb-[60vh]">
       <div className="container border-t border-neutral-300">
         {/* Title */}
         <div className="flex items-center gap-4 py-4">

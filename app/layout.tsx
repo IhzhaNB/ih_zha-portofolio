@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -14,9 +15,14 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Portofolio Website",
+  title: "Ihzha Nauval Baihaqqi | Backend Developer",
   description:
-    "a modern and minimalist portofolio website built with Next.js and gsap.",
+    "Portfolio of Ihzha Nauval Baihaqqi, a scalability-focused Backend Developer specializing in Go (Golang) and Node.js. Experienced in building robust RESTful APIs and optimized databases.",
+  icons: {
+    icon: "/images/favicon.svg",
+    shortcut: "/images/favicon.svg",
+    apple: "/images/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +36,8 @@ export default function RootLayout({
         className={`${poppins.variable} ${spaceGrotesk.className} antialiased`}
       >
         <Header />
-        {children}
+        <main className="bg-white ">{children}</main>
+        <Footer />
       </body>
     </html>
   );

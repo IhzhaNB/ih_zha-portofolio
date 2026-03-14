@@ -13,6 +13,9 @@ interface LinkProps {
 
 export default function CustomLink({ href, label, className }: LinkProps) {
   const linkRef = useRef<HTMLDivElement | null>(null);
+
+  const isExternal = href.startsWith("http") || href.startsWith("mailto:");
+
   const decorateSVG = (svgEl: SVGElement) => {
     svgEl.querySelectorAll("path").forEach((path) => {
       path.setAttribute("stroke", "currentColor");
@@ -96,6 +99,8 @@ export default function CustomLink({ href, label, className }: LinkProps) {
         href={href}
         className={`text-draw inline-block ${className}`}
         data-draw-elemet
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
       >
         <p className="mb-0 relative">{label}</p>
         <div className="relative w-full h-[0.5em]" data-draw-line-box />
