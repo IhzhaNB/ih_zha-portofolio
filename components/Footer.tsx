@@ -1,8 +1,26 @@
-import { RiFileCopyLine } from "@remixicon/react";
+"use client";
+
+import { RiCheckLine, RiFileCopyLine } from "@remixicon/react";
 import CustomLink from "./CustomLink";
 import { linksToCopy1, linksToCopy2 } from "@/data/data";
+import { useState } from "react";
 
 export default function Footer() {
+  const email = "ihzhabaihaqqi05@gmail.com";
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+
+      // Balikin teks ke "copy" setelah 2 detik
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Gagal copy email:", err);
+    }
+  };
+
   return (
     <footer className="bg-neutral-950 text-white h-[60vh] fixed bottom-0 w-full -z-10 pt-16 pb-4 flex flex-col">
       <div className="container space-y-9 flex flex-col h-full">
@@ -28,9 +46,17 @@ export default function Footer() {
             ihzhabaihaqqi05 <br />
             @gmail.com
           </h4>
-          <button className="border flex items-center gap-0.5 py-1.5 px-3.5 rounded-full hover:bg-white hover:text-neutral-900 focus:bg-white focus:text-neutral-900 transition-colors font-semibold">
-            <RiFileCopyLine />
-            copy
+          <button
+            onClick={handleCopy} // Panggil fungsi copy di sini
+            className="border flex items-center gap-0.5 py-1.5 px-3.5 rounded-full hover:bg-white hover:text-neutral-900 focus:bg-white focus:text-neutral-900 transition-colors font-semibold"
+          >
+            {/* Ganti icon kalau sudah di-copy */}
+            {copied ? (
+              <RiCheckLine className="text-green-500" />
+            ) : (
+              <RiFileCopyLine />
+            )}
+            <span>{copied ? "copied!" : "copy"}</span>
           </button>
         </div>
         {/* Info */}
