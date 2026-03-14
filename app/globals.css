@@ -26,10 +26,9 @@
   .btn {
     box-shadow: 3px 3px 0 0 black;
     @apply border px-6 py-3 flex transition;
-
-    .btn:hover,
-    :focus {
-      @apply translate-0.5;
-    }
+  }
+  .btn:is(:hover, :focus) {
+    box-shadow: 0 0;
+    @apply translate-0.5;
   }
 }

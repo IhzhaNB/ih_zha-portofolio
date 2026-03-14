@@ -1,9 +1,49 @@
+"use client";
+
+import { gsap, useGSAP, SplitText } from "@/lib/gsap";
 import { aboutItems } from "@/data/data";
 import Image from "next/image";
+import { useRef } from "react";
 
 export default function About() {
+  const aboutRef = useRef<HTMLElement | null>(null);
+  useGSAP(
+    () => {
+      // Text animation 1
+      const textSplit = SplitText.create(".about-text", {
+        type: "words.lines",
+      });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutRef.current,
+          start: "top center",
+          // markers: true,
+        },
+      });
+
+      tl.fromTo(
+        textSplit.words,
+        {
+          "will-change": "opacity",
+          opacity: 0,
+          filter: "blur(20px)",
+        },
+        {
+          ease: "power2.out",
+          opacity: 1,
+          filter: "blur(0px)",
+          stagger: {
+            each: 0.02,
+            from: "start",
+          },
+        },
+      );
+    },
+    { scope: aboutRef },
+  );
+
   return (
-    <section className="py-20 border-t border-neutral-200">
+    <section ref={aboutRef} className="py-20 border-t border-neutral-200">
       <div className="container space-y-14">
         {/* Content */}
         <div className="space-y-3">
@@ -19,7 +59,7 @@ export default function About() {
             />
             <span>ut me</span>
           </div>
-          <p>
+          <p className="about-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
             dignissimos blanditiis vero adipisci, illum autem! Magnam officiis,
             esse laborum veritatis rem repellat adipisci maxime reiciendis sunt
@@ -49,8 +89,10 @@ export default function About() {
               </div>
               {/* content */}
               <div className="">
-                <h3 className="text-4xl font-bold uppercase">{item.title}</h3>
-                <p>{item.text}</p>
+                <h3 className="about-text text-4xl font-bold uppercase">
+                  {item.title}
+                </h3>
+                <p className="about-text">{item.text}</p>
               </div>
             </div>
           ))}
