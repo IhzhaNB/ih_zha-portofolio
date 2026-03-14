@@ -69,7 +69,7 @@ export default function Hero() {
       <div className="container flex flex-col items-center">
         <div className="size-22.5 bg-black flex rounded-full overflow-hidden">
           <Image
-            src="/image/hero.png"
+            src="/images/hero.png"
             alt="Hero Image"
             width={160}
             height={160}
